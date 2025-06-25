@@ -42,11 +42,9 @@ impl Quadratica{
     }
     
     // calcula o vértice da função
-    pub fn calcular_vertice(&self) -> Vec<f64>{
-        let mut vertice: Vec<f64> = Vec::new();
-        
-        vertice.push(-self.b / (2.0 * self.a));
-        vertice.push(-self.calcular_delta() / (4.0 * self.a));
-        vertice
+    pub fn calcular_vertice(&self) -> (f64, f64) {
+        let x = -self.b / (2.0 * self.a);
+        let y = -self.calcular_delta() / (4.0 * self.a);
+        (x, y)
     }
 }
