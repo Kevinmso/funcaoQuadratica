@@ -9,5 +9,6 @@ fn main() {
     
     println!("{}", equacao.calcular_valor(x));
     println!("{:?}", equacao.calcular_raizes());
-    println!("{:?}", equacao.calcular_vertice())
+    println!("{:?}", equacao.calcular_vertice());
+    println!("{:?}", equacao.gerar_pontos(0.0..5.0, 500));
 }

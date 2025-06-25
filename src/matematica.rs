@@ -1,3 +1,5 @@
+use std::ops::Range;
+
 // criando a estrutura onde se enquadrarão equações quadráticas
 pub struct Quadratica{
     a: f64,
@@ -47,5 +49,18 @@ impl Quadratica{
         let x = -self.b / (2.0 * self.a);
         let y = -self.calcular_delta() / (4.0 * self.a);
         (x, y)
+    }
+    
+    // método que calcula f(x) para todos os valores de x necessários
+    pub fn gerar_pontos(&self, intervalo: Range<f64>, passos: usize) -> Vec<(f64, f64)>{
+        let mut pontos: Vec<(f64, f64)> = Vec::new();
+        let passo = (intervalo.end - intervalo.start) / passos as f64;
+        
+        for i in 0..=passos{
+            let x = intervalo.start + i as f64 * passo;
+            pontos.push((x, self.calcular_valor(x)));
+        }
+        
+        pontos
     }
 }
