@@ -14,12 +14,12 @@ impl Quadratica{
     pub fn calcular_valor(&self, x: f64) -> f64{
         self.a * x.powi(2) + self.b * x + self.c
     }
-    
+
     // calcula o delta da função
     pub fn calcular_delta(&self) -> f64{
         self.b.powi(2) - 4.0 * self.a * self.c
     }
-    
+
     // calculas as raízes da função
     pub fn calcular_raizes(&self) -> Vec<f64>{
         let mut raizes: Vec<f64> = Vec::new();
@@ -27,8 +27,9 @@ impl Quadratica{
 
         match delta{
             d if d >= 0.0 => {
-                raizes.push((-self.b + delta.sqrt()) / (2.0 * self.a));
-                raizes.push((-self.b - delta.sqrt()) / (2.0 * self.a));
+                let raiz_delta = delta.sqrt();
+                raizes.push((-self.b + raiz_delta) / (2.0 * self.a));
+                raizes.push((-self.b - raiz_delta) / (2.0 * self.a));
             }
 
             _ => ()
@@ -40,7 +41,7 @@ impl Quadratica{
 
         raizes
     }
-    
+
     // calcula o vértice da função
     pub fn calcular_vertice(&self) -> (f64, f64) {
         let x = -self.b / (2.0 * self.a);
