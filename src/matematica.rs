@@ -2,9 +2,9 @@ use std::ops::Range;
 
 // criando a estrutura onde se enquadrarão equações quadráticas
 pub struct Quadratica{
-    a: f64,
-    b: f64,
-    c: f64,
+    pub a: f64,
+    pub b: f64,
+    pub c: f64,
 }
 
 impl Quadratica{
@@ -43,7 +43,7 @@ impl Quadratica{
 
         raizes
     }
-    
+
     // calcula ponto onde a parábola intercepta o eixo y
     pub fn calcular_intercepto_y(&self) -> (f64, f64){
         (0.0, self.calcular_valor(0.0))
