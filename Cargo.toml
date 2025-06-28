@@ -4,4 +4,5 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-eframe = "0.31.1"
+eframe = { version = "0.31.1", features = ["default_fonts", "glow"] }
+egui_plot = "0.32.1"
